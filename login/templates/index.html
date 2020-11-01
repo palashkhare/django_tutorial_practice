@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block body_block %}
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Welcome to the future!</h1>
+      <p class="lead">Register with us to dive into future</p>
+    </div>
+  </div>
+
+  {% if message %}
+  <div class="alert alert-success" role="alert">
+    {{message}}
+  </div>
+  {% endif %}
+{% endblock %}

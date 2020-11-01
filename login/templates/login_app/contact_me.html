@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block body_block %}
+<div class="jumbotron jumbotron-fluid">
+
+  <h1>Contact Me!</h1>
+  <p> ** Make sure you enter correct contact details so that we can reach you **</p>
+  <hr>
+
+  <form class="form-group" method="POST">
+    {{form.as_p}}
+    {% csrf_token %}
+    <input type="submit" name="" value="Contact Me">
+  </form>
+
+</div>
+
+
+{% endblock %}

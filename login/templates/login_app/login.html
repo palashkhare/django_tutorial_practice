@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body_block %}
+
+  <div class="container jumbotron m-5 p-5">
+    <form class="form-signin" method="POST" action="{% url 'login_app:user_login' %}" enctype="application/x-www-form-urlencoded">
+      {% csrf_token %}
+      <div class="text-center mb-4">
+        <img class="mb-4" src="{%static 'site_images/logo.jpg'%}" alt="" width="180" height="75">
+        <h1 class="h3 mb-3 font-weight-normal">Sinex</h1>
+        <p>Welcome to future!</p>
+      </div>
+
+      <div class="form-label-group">
+        <input type="text" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+        <label for="username">Username</label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="password" name="password" class="form-control" placeholder="Password" required="">
+        <label for="password">Password</label>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+  </div>
+
+{% endblock %}

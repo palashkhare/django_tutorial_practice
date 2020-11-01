@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Sinex</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+
+        <li class="nav-item active">
+          {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'login_app:logout' %}">Logout </a>
+          {% else %}
+            <a class="nav-link" href="{% url 'login_app:user_login' %}">Login </a>
+          {% endif %}
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'login_app:register' %}">Register </a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'login_app:contact_me' %}">Contact Me </a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/admin">Admin Portal </a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+
+      {% block body_block %}
+
+      <!-- Body block contents -->
+
+      {% endblock %}
+    </div>
+
+  </body>
+</html>
